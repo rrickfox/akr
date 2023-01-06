@@ -25,15 +25,40 @@
 
     \section{Kurzbeschreibung des Versuches}
     \begin{itemize}
-        \item 
+        \item Zu Beginn des Versuchs wird der Nulleffekt gemessen.
+        \item Drei verschiedene Präparate werden für jeweils 10 Minuten im geöffneten Experimentierkanal bestrahlt.
+        \item Nach Herausnehmen der Proben werden sie sofort in den Szintillator montiert.
+        \item Anschließend wird alle 30 Sekunden die Zahl der Impulse für je sechs Sekunden gemessen.
     \end{itemize}
+
+    \section{Funktionsweise eines Szintillators}
+    \begin{enumerate}
+        \item Lichtblitze (Szintillationen), die beim Auftreffen von Strahlung entstehen, werden durch fotoelektrischen Effekt in Fotoelektronen umgewandelt.
+        \item Elektronen werden im SEV durch Stoßionisation verstärkt.
+        \item Die Spannungsimpulse werden weiter verstärkt und gezählt.
+    \end{enumerate}
+    Folgende Werte wurden am Strahlungsmessgerät eingestellt:
+    \begin{table}[H]
+        \centering
+        \begin{tabularx}{0.7\textwidth}{L|R}
+            \toprule
+            \textbf{Parameter} & \textbf{Wert} \\
+            \midrule
+            Pegel & $5.7\, V$ \\
+            Hochspannung & $-1140\, V$ \\
+            Verstärkung & $22\, dB$ \\
+            Messzeit & $6\, s$ \\
+            Kanalbreite & DIS \\
+            \bottomrule
+        \end{tabularx}
+    \end{table}
 
     \section{Nullwertmessungen}
     \begin{table}[H]
         \begin{tabularx}{\textwidth}{R|R|R}
             \toprule
             \raggedright\textbf{Messung} & \raggedright\textbf{Messwert ohne Menschen} & \multicolumn{1}{l}{\textbf{Messwert mit Menschen}} \\
-            & $[Bq]$ & $[Bq]$ \\
+            & $[\#\, Impulse]$ & $[\#\, Impulse]$ \\
             \midrule
             1 & 522 & 408 \\
             2 & 522 & 488 \\
@@ -51,7 +76,7 @@
     \begin{table}[H]
         \begin{tabularx}{\textwidth}{L|R|R|R|R|R|R}
             \toprule
-            \textbf{Zeit} & \multicolumn{2}{c|}{\textbf{Al: $[Bq]$}} & \multicolumn{2}{c|}{\textbf{Cu: $[Bq]$}} & \multicolumn{2}{c}{\textbf{X: $[Bq]$}} \\
+            \textbf{Zeit} & \multicolumn{2}{c|}{\textbf{Al: $[\#\, Impulse]$}} & \multicolumn{2}{c|}{\textbf{Cu: $[\#\, Impulse]$}} & \multicolumn{2}{c}{\textbf{X: $[\#\, Impulse]$}} \\
             $[min]$ & \multicolumn{1}{c}{$N_i$} & \multicolumn{1}{c|}{$N_i - N_0$} & \multicolumn{1}{c}{$N_i$} & \multicolumn{1}{c|}{$N_i - N_0$} & \multicolumn{1}{c}{$N_i$}$N_i$ & \multicolumn{1}{c}{$N_i - N_0$} \\
             \midrule
             0 & - & - & - & - & - & -   \\
@@ -76,10 +101,11 @@
             10,0 & 1930 & 1392  & 8152  & 7614   & 4096  & 3558   \\
             \bottomrule
         \end{tabularx}
-        \caption{Messwerte zu Zerfällen}
+        \caption{Anzahl der Impulse für verschiedene Materialien zu verschiedenen Zeitpunkten}
     \end{table}
 
     \section{Graphische Darstellung}
+    % Fehlerbetrachtung Henry
     \begin{figure}[H]
         \centering
         \includegraphics[width=\textwidth]{Diagramm.png}
@@ -90,4 +116,34 @@
         \includegraphics[width=\textwidth]{DiagrammLog.png}
         \caption{Messwerte mit logarithmischer Achse}
     \end{figure}
+
+    \section{Bestimmung der Halbwertszeiten}
+    \noindent
+    Anhand der Abklingkurven kann man nun die Halbwertszeiten ablesen. \\
+    Da der Verlauf der Aktivitätswerte durch den radioaktiven Zerfall einer Exponentialfunktion folgt, kann diese mittels exponentieller Regression näherungsweise bestimmt und anschließend die Halbwertszeit errechnet werden.
+    Die aus den gemessenen Aktivitätswerten resultierenden Exponentialfunktionen sind folgende:
+    \begin{align*}
+        y_\text{Al} &= e^{10.2344\, -\, 0.3021 \cdot x} \\
+        y_\text{Cu} &= e^{10.0940\, - \, 0.1182 \cdot x} \\
+        y_\text{X} &= e^{9.3969\, -\, 0.1210 \cdot x}
+    \end{align*}
+    Nach der Bestimmung der Umkehrfunktionen lassen sich die Halbwertszeiten wie folgt berechnen:
+    \begin{equation*}
+        T_{1/2} = y^{-1}\left(\frac{y(100)}{2}\right) - 100
+    \end{equation*}
+    Die damit berechneten Halbwertszeiten lauten:
+    \begin{align*}
+        T_{1/2;\, \text{Al}}&: 2.29\, \text{min} \\
+        T_{1/2;\, \text{Cu}}&: 5.86\, \text{min} \\
+        T_{1/2;\, \text{X}}&: 5.72\, \text{min}
+    \end{align*}
+    Es handelt sich bei dem unbekannten Element also vermutlich um Messing.
+
+    \section{Berechnen der Neutronenflussdichte am Bestrahlungsort}
+    Es ergibt sich folgende Gleichung zu Berechnung der Neutronenflussdichte aus der Halbwertszeit von Kupfer:
+    \begin{equation*}
+        \Phi = \frac{\left(\text{Z}(t_b)\, -\, n_0\right) \cdot \text{AG}}{C \cdot m \cdot 0.309 \cdot N_L \cdot \sigma \cdot \left[1 - \exp(-\lambda \cdot t_b)\right]}
+    \end{equation*}
+    % @Artur: woher Aluminium?
+    Es ergibt sich also für die Neutronenflussdichte ein Wert von $7,617 \cdot 10^{-19}\, \frac{n}{\text{cm}^2 \cdot \text{s}}$
 \end{document}
