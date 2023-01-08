@@ -46,13 +46,13 @@ halb_al = func_al_inv(func_al(100) / 2) - 100
 halb_cu = func_cu_inv(func_cu(100) / 2) - 100
 halb_x = func_x_inv(func_x(100) / 2) - 100
 
-Ztb_al = func_al(0)
-Ztb_cu = func_cu(0)
-Ztb_x = func_x(0)
+Ztb_al = func_al(0) / 6
+Ztb_cu = func_cu(0) / 6
+Ztb_x = func_x(0) / 6
 
 
 Nl = 6.025 * 1e23
-V = math.pi * pow(3, 2) * 1 
+V = math.pi * pow(3 / 2, 2) * 0.1
 tb = 10
 C = 0.01
 
@@ -60,17 +60,18 @@ AG_al = 27
 AG_cu = 65
 AG_x = None
 
-wirk_al = 0.215
-wirk_cu = 4.3
-wirk_x = None
+wirk_al = 0.215 * 1e-24
+wirk_cu = 2.1 * 1e-24
+wirk_x = None # * 1e-24
 
 rho_al = 2.2
 rho_cu = 8.92
 
 
-phi_al = (Ztb_al - n0) * AG_al / (C * V * rho_al * Nl * wirk_al * (1 - math.exp(- halb_al * tb)))
-phi_cu = (Ztb_cu - n0) * AG_cu / (C * V * rho_cu * 0.309 * Nl * wirk_cu * (1 - math.exp(- halb_cu * tb)))
+phi_al = (Ztb_al - n0) * AG_al / (C * V * rho_al * Nl * wirk_al * (1 - math.exp(- math.log(2) / halb_al * tb)))
+phi_cu = (Ztb_cu - n0) * AG_cu / (C * V * rho_cu * 0.309 * Nl * wirk_cu * (1 - math.exp(- math.log(2) / halb_cu * tb)))
 
+# g cm³ mol / s mol cm³ g cm²
 
 
 print("ta:", ' '.join(map(str, ta)))
