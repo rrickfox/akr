@@ -49,7 +49,7 @@ halb_x = func_x_inv(func_x(100) / 2) - 100
 Ztb_al = func_al(0) / 6
 Ztb_cu = func_cu(0) / 6
 Ztb_x = func_x(0) / 6
-
+n0 /= 6
 
 Nl = 6.025 * 1e23
 V = math.pi * pow(3 / 2, 2) * 0.1
@@ -78,6 +78,7 @@ print("ta:", ' '.join(map(str, ta)))
 print("ni0_al:", ' '.join(map(str, ni0_al)))
 print("ni0_cu:", ' '.join(map(str, ni0_cu)))
 print("ni0_x:", ' '.join(map(str, ni0_x)))
+print("n0 (1sec):", n0)
 print("halb_al:", halb_al)
 print("halb_cu:", halb_cu)
 print("halb_x:", halb_x)
