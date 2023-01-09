@@ -138,12 +138,22 @@
         T_{1/2;\, \text{X}}&: 5.72\, \text{min}
     \end{align*}
     Es handelt sich bei dem unbekannten Element also vermutlich um Messing.
-
     \section{Berechnen der Neutronenflussdichte am Bestrahlungsort}
-    Es ergibt sich folgende Gleichung zu Berechnung der Neutronenflussdichte aus der Halbwertszeit von Kupfer:
+    Es ergibt sich folgende Gleichung zu Berechnung der Neutronenflussdichte:
     \begin{equation*}
-        \Phi = \frac{\left(\text{Z}(t_b)\, -\, n_0\right) \cdot \text{AG}}{C \cdot m \cdot 0.309 \cdot N_L \cdot \sigma \cdot \left[1 - \exp(-\lambda \cdot t_b)\right]}
+        \Phi = \frac{\left(\text{Z}(t_b)\, -\, n_0\right) \cdot \text{AG}}{C \cdot V \cdot \rho \cdot P \cdot N_L \cdot \sigma \cdot \left[1 - \exp(-\ln(2)/T_{1/2} \cdot t_b)\right]}
     \end{equation*}
-    % @Artur: woher Aluminium?
-    Es ergibt sich also für die Neutronenflussdichte ein Wert von $7,617 \cdot 10^{-19}\, \frac{n}{\text{cm}^2 \cdot \text{s}}$
+    Dabei ist $P$ der Anteil des betrachteten Isotops am Gemisch, für Kupfer ist $P = 0.309$. \\
+    Mit Kupfer wurde der Proportionalitätsfaktor bestimmt und beträgt $C = 0,01$, anhand von Volumen und Dichte lässt sich die Masse der Aluminium- und Kupfer-Proben berechnen und aus der gerade berechneten Halbwertszeit lässt sich die Zerfallskonstante berechnen. \\
+    Für Aluminium ergibt sich also für die Neutronenflussdichte:
+    \begin{align*}
+        \Phi &= \frac{\left(4640.79\, \frac{1}{\text{s}} - 538\, \frac{1}{\text{s}}\right) \cdot 27\, \frac{\text{g}}{\text{mol}}}{0.01 \cdot 0.71\, \text{cm}^3 \cdot 2.2\, \frac{\text{g}}{\text{cm}^3} \cdot 6.025 * 10^{23}\, \frac{1}{\text{mol}} \cdot 0.215 * 10^{-24}\, \text{cm}^2 \cdot \left[1 - \exp\left(- \frac{\ln(2)}{2.29\, \text{min}} \cdot 10\, \text{min}\right)\right]} \\
+             &= 5.7 \cdot 10^7\, \frac{\text{n}}{\text{cm}^2 \cdot \text{s}}
+    \end{align*}
+    Analog lässt sich die Neutronenflussdichte für Kupfer berechnen:
+    \begin{align*}
+        \Phi &= \frac{\left(4032.9\, \frac{1}{\text{s}} - 538\, \frac{1}{\text{s}}\right) \cdot 65\, \frac{\text{g}}{\text{mol}}}{0.01 \cdot 0.71\, \text{cm}^3 \cdot 8.92\, \frac{\text{g}}{\text{cm}^3} \cdot 6.025 * 10^{23}\, \frac{1}{\text{mol}} \cdot 2.1 * 10^{-24}\, \text{cm}^2 \cdot \left[1 - \exp\left(- \frac{\ln(2)}{5.86\, \text{min}} \cdot 10\, \text{min}\right)\right]} \\
+             &= 1.3 \cdot 10^7\, \frac{\text{n}}{\text{cm}^2 \cdot \text{s}}
+    \end{align*}
+    Es ergibt sich also ein Durchschnittswert von $3.5 \cdot 10^7\, \frac{\text{n}}{\text{cm}^2 \cdot \text{s}}$
 \end{document}
