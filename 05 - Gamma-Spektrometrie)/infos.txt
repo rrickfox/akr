@@ -1,0 +1,40 @@
+- Kalibrierung Szintillator
+keV  | Kanal
+-----+------
+662  | 1500
+1173 | 2575
+1332 | 2920
+
+- Kalibrierung Halbleiter
+keV  | Kanal
+-----+------
+662  | 1530
+1173 | 2704
+1332 | 3072
+
+
+Probengewicht: 6.08 g
+
+Cu-66: Kanal 2395 / 1039 keV (Datenbank: Iod-135)
+Cu-64: Kanal 1177 / 507 keV (Datenbank: Caesium-136)
+
+Abklingzeit    | LiveT | Cu-66 Gross / Net | Cu-64 Gross / Net | Verhältnis
+---------------+-------+-------------------+-------------------+-----------
+~10 s          | 200 s | 2519 / 2303 ± 68  | 2894 / 1640 ± 121 | 0.71211
+200 s + 10 min | 200 s | 470 / 398 ± 34    | 2078 / 1664 ± 77  | 4.1809
+
+
+- Fotopeaks unbekannte Probe 1 (Indium-116m)
+128, 441, 817, 1097, 1292, 1505
+
+- Fotopeaks unbekannte Probe 2 (Radium-Leuchtfarbe)
+186, 243, 285, 352, 610, 769, 934, 1121, 1238
+
+- Kalibrierung unbekannte Probe 2
+keV | Kanal
+----+------
+186 | 428 
+243 | 559 
+295 | 679 
+352 | 810 
+610 | 1406
