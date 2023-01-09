@@ -25,17 +25,17 @@
 
     \section{Kurzbeschreibung des Versuches}
     \begin{itemize}
-        \item Zu Beginn des Versuchs wird der Nulleffekt gemessen.
-        \item Drei verschiedene Präparate werden für jeweils 10 Minuten im geöffneten Experimentierkanal bestrahlt.
-        \item Nach Herausnehmen der Proben werden sie sofort in den Szintillator montiert.
-        \item Anschließend wird alle 30 Sekunden die Zahl der Impulse für je sechs Sekunden gemessen.
+        \item Zu Beginn des Versuchs wird ohne Probe fünf mal der Nulleffekt gemessen und aus den erhaltenen Werten der Durchschnittswert gebildet.
+        \item Ein Aluminium-Präparat, ein Kupfer-Präparat sowie ein unbekanntes Präparat werden für jeweils 10 Minuten im geöffneten Experimentierkanal bestrahlt.
+        \item Nach erfolgter Neutronen-Aktivierung werden die Proben aus dem Reaktorkanal entnommen und in den Szintillator montiert.
+        \item Anschließend wird über eine Zeitdauer von 10 Minuten alle 30 Sekunden die Zahl der Impulse für je sechs Sekunden gemessen.
     \end{itemize}
 
     \section{Funktionsweise eines Szintillators}
     \begin{enumerate}
-        \item Lichtblitze (Szintillationen), die beim Auftreffen von Strahlung entstehen, werden durch fotoelektrischen Effekt in Fotoelektronen umgewandelt.
-        \item Elektronen werden im SEV durch Stoßionisation verstärkt.
-        \item Die Spannungsimpulse werden weiter verstärkt und gezählt.
+        \item Im Szintillationskristall des Szintillators werden beim Auftreffen von Strahlung Lichtblitze (Szintillationen) erzeugt.
+        \item Die Lichtblitze werden in einem Sekundärelektronenverstärker durch den fotoelektrischen Effekt in Fotoelektronen umgewandelt und durch Stoßionisation verstärkt.
+        \item Die enstehenden Spannungsimpulse werden in einem nachfolgenden Verstärker weiter verstärkt und anschließend im Impulszähler gezählt.
     \end{enumerate}
     Folgende Werte wurden am Strahlungsmessgerät eingestellt:
     \begin{table}[H]
@@ -139,20 +139,27 @@
     \end{align*}
     Es handelt sich bei dem unbekannten Element also vermutlich um Messing.
     \section{Berechnen der Neutronenflussdichte am Bestrahlungsort}
-    Es ergibt sich folgende Gleichung zu Berechnung der Neutronenflussdichte:
+    Laut Versuchsanleitung ergibt sich zur Berechnung der Neutronenflussdichte folgende Gleichung:
     \begin{equation*}
         \Phi = \frac{\left(\text{Z}(t_b)\, -\, n_0\right) \cdot \text{AG}}{C \cdot V \cdot \rho \cdot P \cdot N_L \cdot \sigma \cdot \left[1 - \exp(-\ln(2)/T_{1/2} \cdot t_b)\right]}
     \end{equation*}
-    Dabei ist $P$ der Anteil des betrachteten Isotops am Gemisch, für Kupfer ist $P = 0.309$. \\
+    \begin{align*}
+		Z(t_b) &: \text{(extrapolierte Zaehlrate fuer $t = 0$ = $t_b$)} \\
+		n_0 &: \text{Nulleffekt} \\
+		AG &: \text{Atomgewicht des Probenmaterials} \\
+		P &: \text{Anteil des betrachteten Isotops am Gemisch} \\
+		... \\
+	\end{align*}
+	Dabei ist $P$ der Anteil des betrachteten Isotops am Gemisch, für Kupfer ist $P = 0.309$. \\
     Mit Kupfer wurde der Proportionalitätsfaktor bestimmt und beträgt $C = 0,01$, anhand von Volumen und Dichte lässt sich die Masse der Aluminium- und Kupfer-Proben berechnen und aus der gerade berechneten Halbwertszeit lässt sich die Zerfallskonstante berechnen. \\
     Für Aluminium ergibt sich also für die Neutronenflussdichte:
     \begin{align*}
-        \Phi &= \frac{\left(4640.79\, \frac{1}{\text{s}} - 538\, \frac{1}{\text{s}}\right) \cdot 27\, \frac{\text{g}}{\text{mol}}}{0.01 \cdot 0.71\, \text{cm}^3 \cdot 2.2\, \frac{\text{g}}{\text{cm}^3} \cdot 6.025 * 10^{23}\, \frac{1}{\text{mol}} \cdot 0.215 * 10^{-24}\, \text{cm}^2 \cdot \left[1 - \exp\left(- \frac{\ln(2)}{2.29\, \text{min}} \cdot 10\, \text{min}\right)\right]} \\
+        \Phi &= \frac{\left(4640.79\, \frac{1}{\text{s}} - 89.66\, \frac{1}{\text{s}}\right) \cdot 27\, \frac{\text{g}}{\text{mol}}}{0.01 \cdot 0.71\, \text{cm}^3 \cdot 2.2\, \frac{\text{g}}{\text{cm}^3} \cdot 6.025 * 10^{23}\, \frac{1}{\text{mol}} \cdot 0.215 * 10^{-24}\, \text{cm}^2 \cdot \left[1 - \exp\left(- \frac{\ln(2)}{2.29\, \text{min}} \cdot 10\, \text{min}\right)\right]} \\
              &= 5.7 \cdot 10^7\, \frac{\text{n}}{\text{cm}^2 \cdot \text{s}}
     \end{align*}
     Analog lässt sich die Neutronenflussdichte für Kupfer berechnen:
     \begin{align*}
-        \Phi &= \frac{\left(4032.9\, \frac{1}{\text{s}} - 538\, \frac{1}{\text{s}}\right) \cdot 65\, \frac{\text{g}}{\text{mol}}}{0.01 \cdot 0.71\, \text{cm}^3 \cdot 8.92\, \frac{\text{g}}{\text{cm}^3} \cdot 6.025 * 10^{23}\, \frac{1}{\text{mol}} \cdot 2.1 * 10^{-24}\, \text{cm}^2 \cdot \left[1 - \exp\left(- \frac{\ln(2)}{5.86\, \text{min}} \cdot 10\, \text{min}\right)\right]} \\
+        \Phi &= \frac{\left(4032.9\, \frac{1}{\text{s}} - 89.66\, \frac{1}{\text{s}}\right) \cdot 65\, \frac{\text{g}}{\text{mol}}}{0.01 \cdot 0.71\, \text{cm}^3 \cdot 8.92\, \frac{\text{g}}{\text{cm}^3} \cdot 6.025 * 10^{23}\, \frac{1}{\text{mol}} \cdot 2.1 * 10^{-24}\, \text{cm}^2 \cdot \left[1 - \exp\left(- \frac{\ln(2)}{5.86\, \text{min}} \cdot 10\, \text{min}\right)\right]} \\
              &= 1.3 \cdot 10^7\, \frac{\text{n}}{\text{cm}^2 \cdot \text{s}}
     \end{align*}
     Es ergibt sich also ein Durchschnittswert von $3.5 \cdot 10^7\, \frac{\text{n}}{\text{cm}^2 \cdot \text{s}}$
