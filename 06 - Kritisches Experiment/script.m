@@ -1,3 +1,10 @@
+clear all;
+set(groot,'defaultLineLineWidth',2.0)
+set(groot,'defaultAxesFontSize',18)
+
+c1 = "#0072BD";
+c2 = "#EDB120";
+
 eingefahrenWB1 = [
     [7.4 7.3]
     [8.5 8.6]
@@ -36,6 +43,9 @@ ausgefahrenWB2 = [
     [96.7 99.3]
 ];
 
+xAus = [0 100 200 300 400 450];
+xEin = [xAus 500];
+
 % calculate mean of both measurements
 
 avgAusWB2 = mean(ausgefahrenWB2,2);
@@ -43,33 +53,141 @@ avgEinWB2 = mean(eingefahrenWB2,2);
 avgAusWB1 = mean(ausgefahrenWB1,2);
 avgEinWB1 = mean(eingefahrenWB1,2);
 
-% calculate relative N_0/N_i
+%% calculate & plot relative N_0/N_i
+
+% calculation
 
 relAusWB1 = avgAusWB1(1,:)./avgAusWB1;
 relEinWB1 = avgEinWB1(1,:)./avgEinWB1;
 relAusWB2 = avgAusWB2(1,:)./avgAusWB2;
 relEinWB2 = avgEinWB2(1,:)./avgEinWB2;
 
-xAus = [0 100 200 300 400 450];
-xEin = [xAus 500]
+% plot
 
 figure
-subplot(2,1,1);
-plot(xAus, relAusWB1);
+
+plot(xEin,relEinWB1,"--",'color',c1);
 hold on
-plot(xEin, relEinWB1);
-title('WB1')
-legend({'ausgefahren' 'eingefahren'})
+plot(xAus,relAusWB1,'color',c1);
+hold on
+plot(xEin,relEinWB2,"--",'color',c2);
+hold on
+plot(xAus,relAusWB2,'color',c2);
+legend({'WB1 eingefahren' 'WB1 ausgefahren' 'WB2 eingefahren' 'WB2 ausgefahren'},Location='northeast');
+ylabel('N_0/N_i');
+xlabel('Hubhöhe [digits]');
 ylim([0 1]);
-xlim([0 800]);
+xlim([0 600]);
+grid on;
+
+f1 = gcf;
+exportgraphics(f1,'relativeCount.eps','Resolution',300)
 
 
-subplot(2,1,2);
-plot(xAus, relAusWB2);
+%% calculate & plot Multiplikationsfaktor k(x)
+
+% calculation
+
+k0 = 0.945;
+
+kEinWB1 = zeros(7,1);
+kEinWB1(1) = k0;
+kAusWB1 = zeros(6,1);
+kAusWB1(1) = k0;
+kEinWB2 = zeros(7,1);
+kEinWB2(1) = k0;
+kAusWB2 = zeros(6,1);
+kAusWB2(1) = k0;
+
+for index = 2:length(kEinWB1)
+    kEinWB1(index) = 1 + (avgEinWB1(index-1)/avgEinWB1(index)) * (kEinWB1(index-1) - 1);
+    kEinWB2(index) = 1 + (avgEinWB2(index-1)/avgEinWB2(index)) * (kEinWB2(index-1) - 1);
+end
+
+for index = 2:length(kAusWB1)
+    kAusWB1(index) = 1 + (avgAusWB1(index-1)/avgAusWB1(index)) * (kAusWB1(index-1) - 1);
+    kAusWB2(index) = 1 + (avgAusWB2(index-1)/avgAusWB2(index)) * (kAusWB2(index-1) - 1);
+end
+
+% plot
+
+figure
+
+plot(xEin,kEinWB1,"--",'color',c1);
 hold on
-plot(xEin, relEinWB2);
-title('WB2')
-legend({'ausgefahren' 'eingefahren'})
-ylim([0 1]);
-xlim([0 800]);
+plot(xAus,kAusWB1,'color',c1);
+hold on
+plot(xEin,kEinWB2,"--",'color',c2);
+hold on
+plot(xAus,kAusWB2,'color',c2);
+legend({'WB1 eingefahren' 'WB1 ausgefahren' 'WB2 eingefahren' 'WB2 ausgefahren'},Location='northwest');
+ylabel('Multiplikationsfaktor k');
+xlabel('Hubhöhe [digits]');
+axis padded;
+grid on;
+
+f2 = gcf;
+exportgraphics(f2,'multiplikationsfaktor.eps','Resolution',500)
+
+
+%% calculate & plot unterkritische Verstärkung M(x)
+
+% calculation
+
+mEinWB1 = 1./(1-kEinWB1(:));
+mAusWB1 = 1./(1-kAusWB1(:));
+mEinWB2 = 1./(1-kEinWB2(:));
+mAusWB2 = 1./(1-kAusWB2(:));
+
+% plot
+
+figure
+
+plot(xEin,mEinWB1,"--",'color',c1);
+hold on
+plot(xAus,mAusWB1,'color',c1);
+hold on
+plot(xEin,mEinWB2,"--",'color',c2);
+hold on
+plot(xAus,mAusWB2,'color',c2);
+legend({'WB1 eingefahren' 'WB1 ausgefahren' 'WB2 eingefahren' 'WB2 ausgefahren'},Location='northwest');
+ylabel('unterkritische Verstärkung M');
+xlabel('Hubhöhe [digits]');
+ylim([0 180]);
+xlim([0 520]);
+grid on;
+
+f3 = gcf;
+exportgraphics(f3,'unterkritischeVerstaerkung.eps','Resolution',500)
+
+
+%% calculate & plot Reaktivität p(x)
+
+% calculation
+
+pEinWB1 = (kEinWB1(:) - 1)./kEinWB1(:);
+pAusWB1 = (kAusWB1(:) - 1)./kAusWB1(:);
+pEinWB2 = (kEinWB2(:) - 1)./kEinWB2(:);
+pAusWB2 = (kAusWB2(:) - 1)./kAusWB2(:);
+
+% plot
+
+figure
+
+plot(xEin,pEinWB1,"--",'color',c1);
+hold on
+plot(xAus,pAusWB1,'color',c1);
+hold on
+plot(xEin,pEinWB2,"--",'color',c2);
+hold on
+plot(xAus,pAusWB2,'color',c2);
+legend({'WB1 eingefahren' 'WB1 ausgefahren' 'WB2 eingefahren' 'WB2 ausgefahren'},Location='northwest');
+ylabel('Reaktivität p [$]');
+xlabel('Hubhöhe [digits]');
+ylim([-0.06 0]);
+xlim([0 520]);
+grid on;
+
+f4 = gcf;
+exportgraphics(f4,'reaktivitaet.eps','Resolution',500)
 
