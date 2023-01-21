@@ -46,7 +46,6 @@ keV	| Kanal
 import matplotlib.pyplot as plt
 import os
 from typing import Tuple, List, Literal
-from scipy.signal import find_peaks
 
 def get_data(filename: str) -> Tuple[List[int], List[Tuple[int, int]] | Literal[False]]:
     with open(filename) as file:
@@ -76,9 +75,9 @@ def get_peaks(data: List[int], min_height: int, resolution: int = 10, mult: floa
     return list(sorted(p))
 
 # settings
-all_files = False
-render = False
-render_peaks = False
+all_files = True
+render = True
+render_peaks = True
 
 # file
 f = "Ba_133.Spe"
