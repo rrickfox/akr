@@ -44,7 +44,7 @@ keV	| Kanal
 '''
 
 import matplotlib.pyplot as plt
-import os
+import os, math
 from typing import Tuple, List, Literal
 
 def get_data(filename: str) -> Tuple[List[int], List[Tuple[int, int]] | Literal[False]]:
@@ -74,13 +74,21 @@ def get_peaks(data: List[int], min_height: int, resolution: int = 10, mult: floa
 
     return list(sorted(p))
 
+def get_area(data: List[int], left: int, right: int) -> Tuple[int, int]:
+    gross = sum(data[left:right+1])
+
+    dx = (right - left)
+    diff = ((data[left] + data[right]) / 2) * dx
+
+    return gross, gross - diff
+
 # settings
-all_files = True
-render = True
-render_peaks = True
+all_files = False
+render = False
+render_peaks = False
 
 # file
-f = "Ba_133.Spe"
+f = "Co_60.Spe"
 
 # params
 best_height = {"gruppe_3.Spe": 60, "Co_60.Spe": 40, "Ba_133.Spe": 50, "Cu_1.Spe": 100}
@@ -107,7 +115,7 @@ else:
     data, _ = get_data(f)
 
     peaks = get_peaks(data, best_height.get(f, max(data) // 2), best_res.get(f, 10), best_mult.get(f, 5))
-    print(peaks)
+    print(f, peaks)
     data = [1 if i in peaks else 0 for i in range(0, len(data))] if render_peaks else data
 
     if render:
@@ -115,3 +123,27 @@ else:
         plt.plot(data)
         plt.subplots_adjust(left=0.05, bottom=0.05, right=0.98, top=0.95, wspace=None, hspace=None)
         plt.show()
+
+# plot energiekalibrierung
+peaks_co_60 = get_peaks(get_data("Co_60.Spe")[0], best_height["Co_60.Spe"])
+data_cs_137 = get_data("Cs_137.Spe")[0]
+peaks_cs_137 = get_peaks(data_cs_137, max(data_cs_137) // 2)
+
+# plt.title("Energiekalibrierung")
+# plt.plot(peaks_co_60+peaks_cs_137, [1173, 1332, 662])
+# plt.subplots_adjust(left=0.05, bottom=0.05, right=0.98, top=0.95, wspace=None, hspace=None)
+# plt.show()
+
+# calculate area of peaks in copper:
+print()
+a = get_area(get_data("Cu_1.Spe")[0], 2655, 2667)[1]
+b = get_area(get_data("Cu_2.Spe")[0], 2655, 2667)[1]
+
+wait_time = 10 * 60
+measure_time = 200
+total_time = wait_time + 1/2 * measure_time
+half_life = 5.12 * 60
+print("actual half life:", half_life)
+
+print("theoretical time:", - math.log(b / a) * half_life / math.log(2))
+print("calculated half life:", (- math.log(2) * total_time) / math.log(b / a))

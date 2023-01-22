@@ -16,7 +16,7 @@
 
 \usepackage{amsmath}
 
-\title{\vspace{-1.5cm}Protokoll Gammadosisleistung}
+\title{\vspace{-1.5cm}Protokoll Gammaspektrometrie}
 \author{Fuchs, Gutmann, Kosbab, Kowal, Steindorf, Fälker, Richter}
 
 \begin{document}
@@ -32,9 +32,37 @@
         \item Die unbekannte Probe wird anhand der Fotopeaks ausgewertet, aufgrund verschobener Kalibrierung wird sie jedoch gegen eine neue unbekannte Probe ausgetauscht.
         \item Die neue Probe wird anhand der Fotopeaks identifiziert.
     \end{itemize}
+    \newpage
+
+    \section[Vergleich der Auflösung zwischen Halbleiter-Detektor und Szintillator]{Vergleich der Auflösung zwischen Halbleiter-Detektor und Szintillator am Beispiel von Cobalt-60}
+    \begin{figure}[H]
+        \begin{minipage}[t]{0.475\textwidth}
+            \centering
+            \includegraphics[width=1\textwidth]{pics/Co_60.png}
+            \caption{Ge(Li) - Halbleiterdetektor}
+        \end{minipage}
+        \hfill
+        \begin{minipage}[t]{0.475\textwidth}
+            \centering
+            \includegraphics[width=1\textwidth]{pics/Co_60_NaJ.png}
+            \caption{NaJ(TI) - Szintillator}
+        \end{minipage}
+    \end{figure}
+    Es ist erkennbar, dass die Auflösung des Halbleiterdetektors höher ist als die des NaJ-Szintillators.
+    Die Halbwertsbreite eines Peaks beträgt im NaJ-Szintillator ca. 200 Kanäle, im Halbleiterdetektor beträgt sie ca. 10 Kanäle.
+
+    \section{Energiekalibrierung des Spektrometers mit Ge(Li)-Detektor}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{pics/energiekalibrierung.png}
+        \caption{Zusammenhang zwischen Kanallage und Energie}
+        \label{fig:kanalenergie}
+    \end{figure}
+    Es werden die Kanallagen und Energien von Cobalt-60 und Cäsium-137 in einem Diagramm aufgetragen.
+    Wie in Abbildung \ref{fig:kanalenergie} zu sehen ist besteht ein linearer Zusammenhang zwischen Kanal und Energie.
 
     \section{Auswertung von Kupfer}
-    
+    Artur ist ein Huso
 
     \section{Messung der ersten unbekannten Probe}
     
