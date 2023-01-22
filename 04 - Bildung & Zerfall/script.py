@@ -56,20 +56,20 @@ V = math.pi * pow(3 / 2, 2) * 0.1
 tb = 10
 C = 0.01
 
-AG_al = 27
 AG_cu = 65
+AG_al = 27
 AG_x = None
 
-wirk_al = 0.215 * 1e-24
 wirk_cu = 2.1 * 1e-24
+wirk_al = 0.215 * 1e-24
 wirk_x = None # * 1e-24
 
-rho_al = 2.2
 rho_cu = 8.92
+rho_al = 2.2
 
 
-phi_al = (Ztb_al - n0) * AG_al / (C * V * rho_al * Nl * wirk_al * (1 - math.exp(- math.log(2) / halb_al * tb)))
 phi_cu = (Ztb_cu - n0) * AG_cu / (C * V * rho_cu * 0.309 * Nl * wirk_cu * (1 - math.exp(- math.log(2) / halb_cu * tb)))
+phi_al = (Ztb_al - n0) * AG_al / (C * V * rho_al * Nl * wirk_al * (1 - math.exp(- math.log(2) / halb_al * tb)))
 
 # g cm³ mol / s mol cm³ g cm²
 
@@ -85,6 +85,6 @@ print("halb_x:", halb_x)
 print("Ztb_al:", Ztb_al)
 print("Ztb_cu:", Ztb_cu)
 print("Ztb_x:", Ztb_x)
-print("phi_al:", phi_al)
 print("phi_cu:", phi_cu)
+print("phi_al:", phi_al)
 print("phi_avg:", (phi_al + phi_cu) / 2)
