@@ -84,11 +84,11 @@ def get_area(data: List[int], left: int, right: int) -> Tuple[int, int]:
 
 # settings
 all_files = False
-render = False
-render_peaks = False
+render = True
+render_peaks = True
 
 # file
-f = "Co_60.Spe"
+f = "gruppe_3.Spe"
 
 # params
 best_height = {"gruppe_3.Spe": 60, "Co_60.Spe": 40, "Ba_133.Spe": 50, "Cu_1.Spe": 100}
@@ -116,6 +116,14 @@ else:
 
     peaks = get_peaks(data, best_height.get(f, max(data) // 2), best_res.get(f, 10), best_mult.get(f, 5))
     print(f, peaks)
+    
+    if f == "gruppe_3.Spe":
+        kalib = lambda x: 0.43345 * x + 0.66809
+        
+        for i in range(len(peaks)):
+            print(f"{peaks[i]} & {kalib(peaks[i]):6.2f} \\\\")
+
+
     data = [1 if i in peaks else 0 for i in range(0, len(data))] if render_peaks else data
 
     if render:

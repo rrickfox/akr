@@ -59,11 +59,72 @@
         \label{fig:kanalenergie}
     \end{figure}
     Es werden die Kanallagen und Energien von Cobalt-60 und Cäsium-137 in einem Diagramm aufgetragen.
-    Wie in Abbildung \ref{fig:kanalenergie} zu sehen ist besteht ein linearer Zusammenhang zwischen Kanal und Energie.
+    Wie in Abbildung \ref{fig:kanalenergie} zu sehen, besteht zwischen Kanallage und  Energie des Fotopeaks ein linearer Zusammenhang.
 
     \section{Auswertung von Kupfer}
-    Artur ist ein Huso
 
-    \section{Messung der ersten unbekannten Probe}
+
+
+    \section{Identifizierung einer unbekannten Probe}
+    Nach 10-minütiger Aktivierung der unbekannten Probe wird mithilfe des Ge(Li)-Halbleiterdetektors ihr Gammaspektrum gemessen. Es ergibt sich folgende graphische Auswertung: \\
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1.0\textwidth]{pics/gruppe_3.png}
+        \caption{Gammaspektrum der unbekannten Probe}
+    \end{figure}
+    Anschließend kann je nach gewünschter Genauigkeit eine visuelle oder rechnerische Peakbestimmung durchgeführt werden. \\
+    Als rechnerische Peakanalyse wurde im Zuge dieses Protokolls die vom Analyseprogramm erstellte SPE-Datei eingelesen sowie mithilfe der Ableitung die Peakkandidaten aufgestellt. \\
+    Anschließend wurden durch Vergleich mit je 20 Umgebungskanälen sowie diverser Mindestanforderung an die Peakhöhe eine feinere Auswahl möglicher Fotopeaks aufgestellt. \\
+    Diese Analyse lieferte folgende Kandidaten für Fotopeaks: \\
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1.0\textwidth]{pics/gruppe_3_peaks.png}
+        \caption{Kandidation für Fotopeaks}
+    \end{figure}
     
+    Mithilfe während des Versuches mitgeschriebener, zur Kalibierung verwendeter Tupeln aus Kanalnummer und Energie bekannter Kalibrierungsquellen, kann anschließend mittels lineare Regression näherungsweise die Energiekalibrierung des Analyseprogramm rekonstruiert werden. \\
+    
+    \begin{table}[H]
+        \centering
+        \begin{tabularx}{0.5\textwidth}{R|R}
+            \toprule
+            \textbf{Kanalnummer} & \textbf{Energie[TODO]} \\
+            \midrule
+            428 & 186 \\
+            559 & 243 \\
+            679 & 295 \\
+            810 & 352 \\
+            1406 & 610 \\
+            \bottomrule
+        \end{tabularx}
+    \end{table}
+    \begin{align}
+        E = f(K) = 0.43345 K + 0.66809
+    \end{align}
+    
+    Damit können nun den errechneten Fotopeaks die jeweiligen Energien bezüglich der im Praktikumsversuch verwendeten Kalibrierung zugeordnet werden: \\
+
+    \begin{table}[H]
+        \centering
+        \begin{tabularx}{0.5\textwidth}{R|R}
+            \toprule
+            \textbf{Kanalnummer} & \textbf{Energie [TODO]} \\
+            \midrule
+            177 &  77.39 \\
+            429 & 186.62 \\
+            558 & 242.53 \\
+            681 & 295.85 \\
+            811 & 352.20 \\
+            1405 & 609.67 \\
+            1534 & 665.58 \\
+            1771 & 768.31 \\
+            2153 & 933.89 \\
+            2584 & 1120.70 \\
+            2855 & 1238.17 \\
+            \bottomrule
+        \end{tabularx}
+    \end{table}
+
+    Die gemessenen Fotopeaks können nun mit den Gammaenergien bekannter Nuklide verglichen werden, um eine Identifizierung der Unbekannten Probe zu erreichen.
+
 \end{document}
