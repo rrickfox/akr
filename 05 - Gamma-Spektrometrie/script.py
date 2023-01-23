@@ -84,7 +84,7 @@ def get_area(data: List[int], left: int, right: int) -> Tuple[int, int]:
 
 # settings
 all_files = False
-render = True
+render = False
 render_peaks = False
 
 # file
@@ -157,11 +157,13 @@ cu_1 = get_data("Cu_1.Spe")[0]
 cu_2 = get_data("Cu_2.Spe")[0]
 print("copper peaks:", get_peaks(cu_1, best_height["Cu_1.Spe"]))
 
-a = get_area(cu_1, 2655, 2667)[1]
-b = get_area(cu_2, 2655, 2667)[1]
+a1 = get_area(cu_1, 2655, 2667)[1]
+b1 = get_area(cu_2, 2655, 2667)[1]
 
-print("areas start:", [get_area(cu_1, 1298, 1319)[1], a])
-print("areas end:", [get_area(cu_2, 1298, 1319)[1], b])
+a2 = get_area(cu_1, 1298, 1319)[1]
+b2 = get_area(cu_2, 1298, 1319)[1]
+print("areas start:", [a2, a1])
+print("areas end:", [b2, b1])
 
 wait_time = 10 * 60
 measure_time = 200
@@ -169,6 +171,7 @@ total_time = wait_time + 1/2 * measure_time
 half_life = 5.1 * 60
 print("actual half life:", half_life)
 
-print("theoretical time:", - math.log(b / a) * half_life / math.log(2))
-print("calculated half life:", (- math.log(2) * total_time) / math.log(b / a))
-print("calculated half life (mins):", ((- math.log(2) * total_time) / math.log(b / a)) / 60)
+print("theoretical time:", - math.log(b1 / a1) * half_life / math.log(2))
+print("theoretical time (mins):", (- math.log(b1 / a1) * half_life / math.log(2)) / 60)
+print("calculated half life:", (- math.log(2) * total_time) / math.log(b1 / a1))
+print("calculated half life (mins):", ((- math.log(2) * total_time) / math.log(b1 / a1)) / 60)

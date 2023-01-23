@@ -64,6 +64,25 @@
     Wie in Abbildung \ref{fig:kanalenergie} zu sehen, besteht zwischen Kanallage und  Energie des Fotopeaks ein linearer Zusammenhang.
 
     \section{Auswertung von Kupfer}
+    Eine Kupferprobe wird im Reaktor für 10 Minuten aktiviert. Anschließen wird das Gammaspektrum im Detektor bestimmt, nach 10 Minuten wird eine weitere Messung durchgeführt.
+    \begin{figure}[H]
+        \centering
+        \begin{minipage}[t]{0.9\textwidth}
+            \centering
+            \includegraphics[width=1\textwidth]{pics/Cu_1.png}
+            \caption{Kupfer direkt nach Bestrahlung}
+        \end{minipage}
+        \\[10pt]
+        \begin{minipage}[t]{0.9\textwidth}
+            \centering
+            \includegraphics[width=1\textwidth]{pics/Cu_2.png}
+            \caption{Kupfer nach 10 Minuten}
+        \end{minipage}
+    \end{figure}
+
+    \newpage
+    Klar erkennbar sind die beiden erzeugten Fotopeaks bei Kanal 1309 und 2661. Dabei wird der erste Peak bei Kanal 1309 von dem Kupferisotop $^{64}$Cu erzeugt, der zweite wird von $^{66}$Cu erzeugt.
+
     \begin{table}[H]
         \begin{tabularx}{\textwidth}{L|R|R|R|R}
             \toprule
@@ -76,7 +95,18 @@
         \end{tabularx}
     \end{table}
 
-
+    Aus den Netto-Peakflächen von Cu-64 lässt sich die Halbwertszeit des Nuklids berechnen:
+    \begin{align*}
+        T_{1/2} &= \frac{- ln(2) \cdot t}{ln\left(\frac{b}{a}\right)} \\[10pt]
+                &= \frac{- ln(2) \cdot 10\, \text{min}}{ln\left(\frac{126}{625}\right)} \\
+                &= 4.3 \text{min}
+    \end{align*}
+    Bezieht man in die Rechnung jedoch ein, dass die Aktivität während der 200 Sekunden Messzeit bereits abnimmt, und addiert die Hälfte der Messzeit auf die Wartezeit ergibt sich als Halbwertszeit:
+    \begin{align*}
+        T_{1/2} &= \frac{- ln(2) \cdot (10\, \text{min} + 100\, \text{s})}{ln\left(\frac{126}{625}\right)} \\
+                &= 5.05 \text{min}
+    \end{align*}
+    Der errechnete Wert von 5,05 Minuten liegt dabei sehr nah an der tatsächlichen Halbwertszeit von 5,1 Minuten.
 
     \section{Identifizierung einer unbekannten Probe}
     Nach 10-minütiger Aktivierung der unbekannten Probe wird mithilfe des Ge(Li)-Halbleiterdetektors ihr Gammaspektrum gemessen. Es ergibt sich folgende graphische Auswertung: \\
@@ -100,7 +130,7 @@
     
     \begin{table}[H]
         \centering
-        \begin{tabularx}{0.5\textwidth}{R|R}
+        \begin{tabularx}{0.5\textwidth}{L|R}
             \toprule
             \textbf{Kanalnummer} & \textbf{Energie}\([keV]\) \\
             \midrule
@@ -113,15 +143,15 @@
         \end{tabularx}
         \caption{Kalibrierungspaare}
     \end{table}
-    \begin{align}
+    \begin{equation*}
         E = f(K) = 0.43345 K + 0.66809
-    \end{align}
+    \end{equation*}
     
     Damit können nun den errechneten Fotopeaks die jeweiligen Energien bezüglich der im Praktikumsversuch verwendeten Kalibrierung zugeordnet werden: \\
 
     \begin{table}[H]
         \centering
-        \begin{tabularx}{0.5\textwidth}{R|R}
+        \begin{tabularx}{0.5\textwidth}{L|R}
             \toprule
             \textbf{Kanalnummer} & \textbf{Energie \([keV]\)} \\
             \midrule
@@ -160,7 +190,7 @@
         \centering
         \begin{tabularx}{1.0\textwidth}{R|R|R|R}
             \toprule
-            Nuklid &  Messwert \([keV]\) & Literaturwert \([keV]\) & Abweichung \([keV]\) \\
+            \textbf{Nuklid} &  \textbf{Messwert \([keV]\)} & \textbf{Literaturwert \([keV]\)} & \textbf{Abweichung \([keV]\)} \\
             \midrule
             \(^{226}\)Ra & 186.62 & 186.211 &   0.41 \\
             \(^{214}\)Pb & 242.53 & 241.997 &   0.54 \\
