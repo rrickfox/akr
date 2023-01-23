@@ -85,7 +85,7 @@ def get_area(data: List[int], left: int, right: int) -> Tuple[int, int]:
 # settings
 all_files = False
 render = True
-render_peaks = True
+render_peaks = False
 
 # file
 f = "gruppe_3.Spe"
