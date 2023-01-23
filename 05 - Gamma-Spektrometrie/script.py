@@ -133,9 +133,9 @@ else:
         plt.show()
 
 # plot energiekalibrierung
-peaks_co_60 = get_peaks(get_data("Co_60.Spe")[0], best_height["Co_60.Spe"])
-data_cs_137 = get_data("Cs_137.Spe")[0]
-peaks_cs_137 = get_peaks(data_cs_137, max(data_cs_137) // 2)
+# peaks_co_60 = get_peaks(get_data("Co_60.Spe")[0], best_height["Co_60.Spe"])
+# data_cs_137 = get_data("Cs_137.Spe")[0]
+# peaks_cs_137 = get_peaks(data_cs_137, max(data_cs_137) // 2)
 
 # plt.title("Energiekalibrierung")
 # plt.plot(peaks_co_60+peaks_cs_137, [1173, 1332, 662])
@@ -144,14 +144,22 @@ peaks_cs_137 = get_peaks(data_cs_137, max(data_cs_137) // 2)
 
 # calculate area of peaks in copper:
 print()
-a = get_area(get_data("Cu_1.Spe")[0], 2655, 2667)[1]
-b = get_area(get_data("Cu_2.Spe")[0], 2655, 2667)[1]
+cu_1 = get_data("Cu_1.Spe")[0]
+cu_2 = get_data("Cu_2.Spe")[0]
+print("copper peaks:", get_peaks(cu_1, best_height["Cu_1.Spe"]))
+
+a = get_area(cu_1, 2655, 2667)[1]
+b = get_area(cu_2, 2655, 2667)[1]
+
+print("areas start:", [get_area(cu_1, 1298, 1319)[1], a])
+print("areas end:", [get_area(cu_2, 1298, 1319)[1], b])
 
 wait_time = 10 * 60
 measure_time = 200
 total_time = wait_time + 1/2 * measure_time
-half_life = 5.12 * 60
+half_life = 5.1 * 60
 print("actual half life:", half_life)
 
 print("theoretical time:", - math.log(b / a) * half_life / math.log(2))
 print("calculated half life:", (- math.log(2) * total_time) / math.log(b / a))
+print("calculated half life (mins):", ((- math.log(2) * total_time) / math.log(b / a)) / 60)
