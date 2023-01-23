@@ -18,6 +18,8 @@
 
 \title{\vspace{-1.5cm}Protokoll Gammaspektrometrie}
 \author{Fuchs, Gutmann, Kosbab, Kowal, Steindorf, Fälker, Richter}
+\setlength\parindent{0pt}
+
 
 \begin{document}
     \maketitle
@@ -94,13 +96,13 @@
         \caption{Kandidation für Fotopeaks}
     \end{figure}
     
-    Mithilfe während des Versuches mitgeschriebener, zur Kalibierung verwendeter,Kanalnummer-Energie-Paaren bekannter Kalibrierungsquellen kann anschließend mittels lineare Regression (siehe Abbildung \ref{fig:kanalenergie}) näherungsweise die Energiekalibrierung des Analyseprogramm rekonstruiert werden. \\
+    Mithilfe während des Versuches mitgeschriebener, nach Kalibrierung erzeugter Kanalnummer-Energie-Paaren, kann anschließend mittels lineare Regression (siehe Abbildung \ref{fig:kanalenergie}) näherungsweise die Energiekalibrierung des Analyseprogramm rekonstruiert werden. \\
     
     \begin{table}[H]
         \centering
         \begin{tabularx}{0.5\textwidth}{R|R}
             \toprule
-            \textbf{Kanalnummer} & \textbf{Energie[TODO]} \\
+            \textbf{Kanalnummer} & \textbf{Energie}\([keV]\) \\
             \midrule
             428 & 186 \\
             559 & 243 \\
@@ -109,6 +111,7 @@
             1406 & 610 \\
             \bottomrule
         \end{tabularx}
+        \caption{Kalibrierungspaare}
     \end{table}
     \begin{align}
         E = f(K) = 0.43345 K + 0.66809
@@ -120,7 +123,7 @@
         \centering
         \begin{tabularx}{0.5\textwidth}{R|R}
             \toprule
-            \textbf{Kanalnummer} & \textbf{Energie [TODO]} \\
+            \textbf{Kanalnummer} & \textbf{Energie \([keV]\)} \\
             \midrule
             177 &  77.39 \\
             429 & 186.62 \\
@@ -135,6 +138,7 @@
             2855 & 1238.17 \\
             \bottomrule
         \end{tabularx}
+        \caption{durch Kalibrierung gegegbene Relation zwischen Kanalnummer und Energie}
     \end{table}
 
     Die gemessenen Fotopeaks können nun mit den Gammaenergien bekannter Nuklide verglichen werden, um eine Identifizierung der unbekannten Probe zu erreichen. \\
@@ -146,9 +150,32 @@
         \caption{Vergrößerung des Gammaspektrums der unbekannten Probe um 77.39 keV}
     \end{figure}
 
-    Aufgrund dieser diffusen Verteilung sowie der Lage im Energiespektrum lässt sich hinter diesen Impulsen die in der Hintergrundstrahlung enthaltene Röntgenstrahlung bzw. Bremsstrahlung vermuten. \\
-    Alle Peakkandidaten oberhalb der Kanalnummer 1500 haben aufgrund ihrer geringen Peakhöhe vermutlich ebenfalls ihren Ursprung in Hintergrundstrahlung. \\
+    Aufgrund dieser diffusen Verteilung sowie der Lage im Energiespektrum lässt sich hinter diesen Impulsen Röntgenstrahlung vermuten. \\
+    Alle Peakkandidaten oberhalb der Kanalnummer 1500 haben aufgrund ihrer geringen Peakhöhe vermutlich ebenfalls keinen direkten Ursprung im Gammazerfall des Ausgangselements, sondern werden von Zerfallsprodukten emittiert. \\
     Damit ergeben sich für die Recherche Fotopeaks mit Energien im Bereich von 186.5 keV, 242.5 keV, 296 keV, 352 keV sowie 609.5 keV. \\
-    
+    Bei der unbekannten Probe handelt es sich um Radium-Leuchtfarbe. \\
+    Der Gammazerfall des zugehörigen Isotops \(^{226}\)Ra erzeugt jedoch nur für eine Energie von 186.211 keV messbare Fotopeaks. Die drei darauffolgenden Peakkandidaten werden von dem Zerfallsprodukt Blei \(^{214}\)Pb, sowie alle weiteren von dem Zerfallsprodukt Bismut \(^{214}\)Bi erzeugt. \\
+    Aus diesem Grund ist es während des Praktikumsversuches nicht gelungen, eine eindeutige Identifizierung der unbekannten Probe anhand des gemessenen Gammaspektrums zu erreichen. 
+    \begin{table}[H]
+        \centering
+        \begin{tabularx}{1.0\textwidth}{R|R|R|R}
+            \toprule
+            Nuklid &  Messwert \([keV]\) & Literaturwert \([keV]\) & Abweichung \([keV]\) \\
+            \midrule
+            \(^{226}\)Ra & 186.62 & 186.211 &   0.41 \\
+            \(^{214}\)Pb & 242.53 & 241.997 &   0.54 \\
+            \(^{214}\)Pb & 295.85 & 295.224 &   0.62 \\
+            \(^{214}\)Pb & 352.20 & 351.932 &   0.26 \\
+            \(^{214}\)Bi & 609.67 & 609.312 &   0.35 \\
+            \(^{214}\)Bi & 665.58 & 665.453 &   0.13 \\
+            \(^{214}\)Bi & 768.31 & 768.356 &   0.05 \\
+            \(^{214}\)Bi & 933.89 & 934.061 &   0.18 \\
+            \(^{214}\)Bi & 1120.70 & 1120.287 &   0.42 \\
+            \(^{214}\)Bi & 1238.17 & 1238.110 &   0.06 \\
+            \bottomrule
+        \end{tabularx}
+        \caption{Vergleich gemessener zu tatsächlicher Energiewerte}
+    \end{table}
+    Die Energien der gemessenen Peakpositionen ensprechen dabei sehr exakt den tatächlichen Gammastrahlungsenergien der Zerfallsprodukte, es ergibt sich eine maximale Abweichung von 0.62354 keV sowie eine durchschnittliche Abweichung von 0.300839 keV.
 
 \end{document}

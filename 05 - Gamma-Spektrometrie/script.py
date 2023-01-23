@@ -123,6 +123,15 @@ else:
         for i in range(len(peaks)):
             print(f"{peaks[i]} & {kalib(peaks[i]):6.2f} \\\\")
 
+        correct = [186.211, 241.997, 295.224, 351.932, 609.312, 665.453, 768.356, 934.061, 1120.287, 1238.110]
+        abweich = [abs(kalib(peak) - corr) for peak, corr in zip(peaks[1:], correct)]
+
+        print("abweichung:")
+        for i in range(len(abweich)):
+            print(f"{kalib(peaks[i + 1]):6.2f} & {correct[i]:6.3f} & {abweich[i]:6.2f} \\\\")
+
+        print("abweich_max:", max(abweich))
+        print("abweich_avg:", sum(abweich) / len(abweich))
 
     data = [1 if i in peaks else 0 for i in range(0, len(data))] if render_peaks else data
 
