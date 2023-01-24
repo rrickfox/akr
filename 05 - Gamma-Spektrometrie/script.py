@@ -108,8 +108,10 @@ if all_files:
 
         if render:
             plt.title(filename)
+            plt.xlabel("Kanalnummer")
+            plt.ylabel("Häufigkeit")
             plt.plot(data)
-            plt.subplots_adjust(left=0.05, bottom=0.05, right=0.98, top=0.95, wspace=None, hspace=None)
+            plt.subplots_adjust(left=0.05, bottom=0.08, right=0.98, top=0.95, wspace=None, hspace=None)
             plt.show()
 else:
     data, _ = get_data(f)
@@ -137,8 +139,10 @@ else:
 
     if render:
         plt.title(f)
+        plt.xlabel("Kanalnummer")
+        plt.ylabel("Häufigkeit")
         plt.plot(data)
-        plt.subplots_adjust(left=0.05, bottom=0.05, right=0.98, top=0.95, wspace=None, hspace=None)
+        plt.subplots_adjust(left=0.05, bottom=0.08, right=0.98, top=0.95, wspace=None, hspace=None)
         plt.show()
 
 # plot energiekalibrierung
@@ -147,8 +151,10 @@ else:
 # peaks_cs_137 = get_peaks(data_cs_137, max(data_cs_137) // 2)
 
 # plt.title("Energiekalibrierung")
+# plt.xlabel("Kanalnummer")
+# plt.ylabel(r'Energie $[keV]$')
 # plt.plot(peaks_co_60+peaks_cs_137, [1173, 1332, 662])
-# plt.subplots_adjust(left=0.05, bottom=0.05, right=0.98, top=0.95, wspace=None, hspace=None)
+# plt.subplots_adjust(left=0.05, bottom=0.08, right=0.98, top=0.95, wspace=None, hspace=None)
 # plt.show()
 
 # calculate area of peaks in copper:
