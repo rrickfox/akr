@@ -1,0 +1,50 @@
+\documentclass[12pt,german]{article}
+
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=3.5cm, landscape=false]{geometry}
+
+\usepackage{graphicx}
+\usepackage{float}
+
+\usepackage{tabularx}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\usepackage{booktabs}
+\usepackage{dcolumn}
+\usepackage{multirow}
+
+\usepackage[ngerman]{babel}
+
+\usepackage{amsmath}
+
+\title{\vspace{-1.5cm}Protokoll Kritisches Experiment}
+\author{Fuchs, Gutmann, Kosbab, Kowal, Steindorf, Fälker, Richter}
+\setlength\parindent{0pt}
+
+
+\begin{document}
+    \maketitle
+    \tableofcontents
+
+    \section{Kurzbeschreibung des Versuches}
+    \begin{itemize}
+        \item Zu Beginn wird die Funktionsfähigkeit der Sicherheitssysteme getestet, indem manuell eine Totalabschaltung ausgelöst wird.
+        \item Die Anfahrneutronenquelle wird eingefahren und das Signal \glqq Kernhälften zusammen\grqq mit dem Schalter \glqq Simulation Kernhälften zusammen\grqq überbrückt, um auch bei getrennten Kernhälften eine Veränderung der Steuerstäbe zu ermöglichen.
+        \item Es wird die Untergrundaktivität bei ein- und ausgefahrenen Steuerstäben gemessen.
+        \item Anschließend wird die untere Kernhälfte zunächst um 100 Digits angehoben, wonach die Impulsrate mit ein- und ausgefahrenen Steuerstäben gemessen wird.
+        \item Aus den Impulsraten wird berechnet, um wie viele Digits die Kernhälfte erneut angehoben werden darf.
+        \item Die letzten beiden Schritte werden wiederholt, bis durch Extrapolation der Schnittpunkte mit der X-Achse die Ungleichung \(X_\text{krit, aus}(i) < X_\text{max} < X_\text{krit, ein}(i)\) zuverlässig erfüllt ist.
+    \end{itemize}
+
+    \section{Messwerttabellen}
+
+    \begin{table}[H]
+        \begin{tabularx}{\textwidth}{L|R|R|R|R|R|R|R|R}
+            \toprule
+            Hubhöhe & \centering Stab- & \multicolumn{3}{c|}{Zählraten} &  &  &  &  \\
+            $[x_i / dgts.]$ & \centering stellung & \centering $N_{i, 1}$ & \centering $N_{i, 2}$ & \centering $\overline{N_i}$ & \centering $N_0 / \overline{N_i}$ & \centering $k_i$ & \centering $M_i$ & \multicolumn{1}{c}{$\rho_i$} \\
+            \midrule
+            
+        \end{tabularx}
+    \end{table}
+\end{document}
