@@ -62,7 +62,16 @@ relEinWB1 = avgEinWB1(1,:)./avgEinWB1;
 relAusWB2 = avgAusWB2(1,:)./avgAusWB2;
 relEinWB2 = avgEinWB2(1,:)./avgEinWB2;
 
+extraAusWB1 = fzero(@(x) interp1([xAus(end-1) xAus(end)],[relAusWB1(end-1) relAusWB1(end)],x,'spline'),450);
+extraEinWB1 = fzero(@(x) interp1([xEin(end-1) xEin(end)],[relEinWB1(end-1) relEinWB1(end)],x,'spline'),450);
+extraAusWB2 = fzero(@(x) interp1([xAus(end-1) xAus(end)],[relAusWB2(end-1) relAusWB2(end)],x,'spline'),450);
+extraEinWB2 = fzero(@(x) interp1([xEin(end-1) xEin(end)],[relEinWB2(end-1) relEinWB2(end)],x,'spline'),450);
+
+
+
 % plot
+
+grayColor = [.7 .7 .7];
 
 figure
 
@@ -73,9 +82,23 @@ hold on
 plot(xEin,relEinWB2,"--",'color',c2);
 hold on
 plot(xAus,relAusWB2,'color',c2);
-legend({'WB1 eingefahren' 'WB1 ausgefahren' 'WB2 eingefahren' 'WB2 ausgefahren'},Location='northeast');
-ylabel('N_0/N_i');
+hold on
+plot([xAus(end) extraAusWB1],[relAusWB1(end) 0],'color',grayColor);
+hold on
+plot([xAus(end) extraAusWB2],[relAusWB2(end) 0],'color',grayColor);
+hold on
+plot([xEin(end) extraEinWB1],[relEinWB1(end) 0],'color',grayColor);
+hold on
+plot([xEin(end) extraEinWB2],[relEinWB2(end) 0],'color',grayColor);
+
+
+legend({'WB1 eingefahren' 'WB1 ausgefahren' 'WB2 eingefahren' 'WB2 ausgefahren' 'lineare Extrapolation'},Location='northeast');
+
 xlabel('Hubhöhe [digits]');
+xticks([0   100   200   300   400   500   508   600])
+xticklabels({'0','100','200','300','400', '', 'H_{max} = 508', '600'})
+
+ylabel('N_0/N_i');
 ylim([0 1]);
 xlim([0 600]);
 grid on;
@@ -190,4 +213,3 @@ grid on;
 
 f4 = gcf;
 exportgraphics(f4,'reaktivitaet.eps','Resolution',500)
-
