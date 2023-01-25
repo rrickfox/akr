@@ -96,3 +96,23 @@ print("wb2_krit_ein", wb2_krit_ein)
 print("wb2_krit_aus", wb2_krit_aus)
 
 # Tabelle ausgeben
+print("Tabelle WB1")
+print("\\multirow{2}{*}{  0} & ein & \\multicolumn{3}{r|}{" + f"{round(wb1_avg_ein[0], 2):5.2f}" + "} & " + f"{wb1_ratio_ein[0]:5.3f} & {wb1_k_ein[0]:5.3f} & {wb1_M_ein[0]:6.2f} & {wb1_rho_ein[0]:7.4f} \\\\")
+print("                     & aus & \\multicolumn{3}{r|}{" + f"{round(wb1_avg_aus[0], 2):5.2f}" + "} & " + f"{wb1_ratio_aus[0]:5.3f} & {wb1_k_aus[0]:5.3f} & {wb1_M_aus[0]:6.2f} & {wb1_rho_aus[0]:7.4f} \\\\")
+for i in range(1, len(hubhoehe_aus)):
+    print("\\midrule")
+    print("\\multirow{2}{*}{" + f"{hubhoehe_ein[i]}" + "}" + f" & ein & {wb1_n1_ein[i-1]:6.1f} & {wb1_n2_ein[i-1]:6.1f} & {wb1_avg_ein[i]:8.2f} & {wb1_ratio_ein[i]:5.3f} & {wb1_k_ein[i]:5.3f} & {wb1_M_ein[i]:6.2f} & {wb1_rho_ein[i]:7.4f} \\\\")
+    print(f"                     & ein & {wb1_n1_aus[i-1]:6.1f} & {wb1_n2_aus[i-1]:6.1f} & {wb1_avg_aus[i]:8.2f} & {wb1_ratio_aus[i]:5.3f} & {wb1_k_aus[i]:5.3f} & {wb1_M_aus[i]:6.2f} & {wb1_rho_aus[i]:7.4f} \\\\")
+print("\\midrule")
+print(f"                 {hubhoehe_ein[-1]} & ein & {wb1_n1_ein[-1]:6.1f} & {wb1_n2_ein[-1]:6.1f} & {wb1_avg_ein[-1]:8.2f} & {wb1_ratio_ein[-1]:5.3f} & {wb1_k_ein[-1]:5.3f} & {wb1_M_ein[-1]:6.2f} & {wb1_rho_ein[-1]:7.4f} \\\\")
+
+
+print("\n\nTabelle WB2")
+print("\\multirow{2}{*}{  0} & ein & \\multicolumn{3}{r|}{" + f"{round(wb2_avg_ein[0], 2):5.2f}" + "} & " + f"{wb2_ratio_ein[0]:5.3f} & {wb2_k_ein[0]:5.3f} & {wb2_M_ein[0]:6.2f} & {wb2_rho_ein[0]:7.4f} \\\\")
+print("                     & aus & \\multicolumn{3}{r|}{" + f"{round(wb2_avg_aus[0], 2):5.2f}" + "} & " + f"{wb2_ratio_aus[0]:5.3f} & {wb2_k_aus[0]:5.3f} & {wb2_M_aus[0]:6.2f} & {wb2_rho_aus[0]:7.4f} \\\\")
+for i in range(1, len(hubhoehe_aus)):
+    print("\\midrule")
+    print("\\multirow{2}{*}{" + f"{hubhoehe_ein[i]}" + "}" + f" & ein & {wb2_n1_ein[i-1]:6.1f} & {wb2_n2_ein[i-1]:6.1f} & {wb2_avg_ein[i]:8.2f} & {wb2_ratio_ein[i]:5.3f} & {wb2_k_ein[i]:5.3f} & {wb2_M_ein[i]:6.2f} & {wb2_rho_ein[i]:7.4f} \\\\")
+    print(f"                     & ein & {wb2_n1_aus[i-1]:6.1f} & {wb2_n2_aus[i-1]:6.1f} & {wb2_avg_aus[i]:8.2f} & {wb2_ratio_aus[i]:5.3f} & {wb2_k_aus[i]:5.3f} & {wb2_M_aus[i]:6.2f} & {wb2_rho_aus[i]:7.4f} \\\\")
+print("\\midrule")
+print(f"                 {hubhoehe_ein[-1]} & ein & {wb2_n1_ein[-1]:6.1f} & {wb2_n2_ein[-1]:6.1f} & {wb2_avg_ein[-1]:8.2f} & {wb2_ratio_ein[-1]:5.3f} & {wb2_k_ein[-1]:5.3f} & {wb2_M_ein[-1]:6.2f} & {wb2_rho_ein[-1]:7.4f} \\\\")
