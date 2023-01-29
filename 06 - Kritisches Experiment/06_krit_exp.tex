@@ -29,7 +29,7 @@
     \section{Kurzbeschreibung des Versuches}
     \begin{itemize}
         \item Zu Beginn wird die Funktionsfähigkeit der Sicherheitssysteme getestet, indem manuell eine Totalabschaltung ausgelöst wird.
-        \item Die Anfahrneutronenquelle wird eingefahren und das Signal \glqq Kernhälften zusammen\grqq mit dem Schalter \glqq Simulation Kernhälften zusammen\grqq überbrückt, um auch bei getrennten Kernhälften eine Veränderung der Steuerstäbe zu ermöglichen.
+        \item Die Anfahrneutronenquelle wird eingefahren und das Signal \glqq Kernhälften zusammen\grqq  mit dem Schalter \glqq  Simulation Kernhälften zusammen\grqq überbrückt, um auch bei getrennten Kernhälften eine Veränderung der Steuerstäbe zu ermöglichen.
         \item Es wird die Untergrundaktivität bei ein- und ausgefahrenen Steuerstäben gemessen.
         \item Anschließend wird die untere Kernhälfte zunächst um 100 Digits angehoben, wonach die Impulsrate mit ein- und ausgefahrenen Steuerstäben gemessen wird.
         \item Aus den Impulsraten wird berechnet, um wie viele Digits die Kernhälfte erneut angehoben werden darf.
@@ -149,8 +149,8 @@
 
     % Multiplikationsfaktor
 
-    Aus der Veränderung der Neutronendichte lässt sich mithilfe des initialen Werts der Multiplikationsfaktor zu jeder Position der unteren Kernhälfte bestimmen. \\
-    Aus den Messwerten lässt sich wie in Tabellen 2 \& 3 gezeigt der Multiplikationsfaktor berechnen:
+    Aus der Veränderung der Neutronendichte lässt sich, mithilfe des initialen Werts, der Multiplikationsfaktor zu jeder Position der unteren Kernhälfte bestimmen. \\
+    Aus den Messwerten lässt sich, wie in Tabellen 2 \& 3 eingetragen, der Multiplikationsfaktor berechnen:
     \begin{align*}
         k_0 &= 0.945 \\
         k_i &= 1 + \frac{N_{i-1}}{N_i} \cdot \left(k_{i-1} - 1\right)
@@ -166,7 +166,7 @@
     \\ \\
     % Unterkritische Verstärkung
     Aus dem Multiplikationsfaktor lässt sich ebenfalls berechnen, wie stark die unterkritische Verstärkung $M_i$ ist, die der Reaktor aufweist, wenn die Anfahrneutronenquelle eingefahren ist. \\
-    Dabei bezeichnet die unterkritische Verstärkung den Parameter, der bestimmt wie groß die asymptotische Neutronendichte nach unendlich langer Zeit ist, sofern die Quellstärke der Neutronenquelle und die Neutronengenerationszeit konstant ist.
+    Dabei bezeichnet die unterkritische Verstärkung den Parameter, der bestimmt, wie groß die asymptotische Neutronendichte nach unendlich langer Zeit ist, sofern die Quellstärke der Neutronenquelle und die Neutronengenerationszeit konstant sind.
     \begin{align*}
         M_i = \frac{1}{1 - k_i}
     \end{align*}
@@ -200,12 +200,12 @@
     Die Neutronendetektoren unterliegen einem statistischen Fehler, da die Impulsrate der Neutronen ein statistischer Wert ist.
     Dabei berechnet sich der Fehler aus der Wurzel des Messwerts. \\
     Zu Beginn des Experiments liegen die Zählraten im Bereich von 8 - 12 Impulsen pro Sekunde. Damit liegt der Fehler bei $\pm\, 35\, \%$ bzw. $\pm\, 29\, \%$, was auch die Überkreuzung der Graphen in Abbildung \ref{fig:relativeCount} erklärt, welche in der Theorie nicht vorkommen sollte. \\
-    Da die Zählraten am Ende des Experiments im Bereich von 95 Impulsen pro Sekunde liegen, womit der Fehler auf $\pm\, 10\, \%$ zurückgeht, hat sich Sicherheit der Extrapolation entsprechend erhöht. \\
+    Da die Zählraten am Ende des Experiments im Bereich von 95 Impulsen pro Sekunde liegen, womit der Fehler auf $\pm\, 10\, \%$ zurückgeht, hat sich die Sicherheit der Extrapolation entsprechend erhöht. \\
     Aus diesem Grund wird das Experiment in der Regel fortgeführt, bis die extrapolierten kritischen Parameterwerte mit Sicherheit die Ungleichung erfüllen.
     
     % Neutronendichte asymptotisch etc
     \subsection{Erreichen der asymptotischen Neutronendichte}
-    Die Zeitabhängigkeit zur erreichen der asymptotischen Neutronendichte n lautet
+    Die Zeitabhängigkeit zum Erreichen der asymptotischen Neutronendichte n lautet
     \begin{align*}
         n(t) = \frac{S \cdot l}{1 - k} \cdot \left(1 - \exp \left[- \frac{1 - k}{l} \cdot t\right] \right)
     \end{align*}
@@ -214,4 +214,25 @@
 
     \newpage
     \section{Anhang}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{ausgang_wb1.png}
+        \caption{Ausgangswerte Weitbereichskanal 1}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\textwidth]{messtabelle_wb1.png}
+        \caption{Messtabelle Weitbereichskanal 1}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{ausgang_wb2.png}
+        \caption{Ausgangswerte Weitbereichskanal 2}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\textwidth]{messtabelle_wb2.png}
+        \caption{Messtabelle Weitbereichskanal 2}
+    \end{figure}
 \end{document}
