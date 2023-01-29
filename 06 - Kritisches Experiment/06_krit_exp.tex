@@ -121,9 +121,9 @@
     \end{table}
 
     \section{Berechnung der Anhebung}
-    Da die Neutronendichte in einem kritischen Reaktor bei eingefahrener Anfahrneutronenquelle gegen Unendlich strebt, geht gleichermaßen der reziproke Wert der Neutronendichte gegen Null.
+    Dadurch, dass die Neutronendichte in einem kritischen Reaktor bei eingefahrener Anfahrneutronenquelle gegen Unendlich strebt, geht gleichermaßen der reziproke Wert der Neutronendichte gegen Null.
     Da die Impulsrate eines Neutronenmesskanals direkt proportional zur Neutronendichte ist, kann diese als Messgröße verwendet werden.
-    Ebenfalls kann die Größe normiert werden, indem statt dem reziproken Wert der Impulsrate der Wert $N_0 / N_i$ verwendet wird. Dabei ist $N_0$ die Impulsrate im Ausgangszustand, wodurch die Größe den Wert 1 annimmt.
+    Ebenfalls kann die Größe normiert werden, indem statt dem reziproken Wert der Impulsrate der Wert $N_0 / N_i$ verwendet wird. Dabei ist $N_0$ die Impulsrate im Ausgangszustand, wodurch die Größe zu Beginn den Wert 1 annimmt.
     \\ \\
     Es können nun wiederholte Messungen durchgeführt werden, bei denen ein Parameter verändert wird. Der Schnittpunkt des so gebildeten Graphs mit der X-Achse bestimmt den Wert des Parameters, bei dem der Reaktor kritisch wird.
     \\ \\
@@ -148,11 +148,70 @@
     \section{Auswertung}
 
     % Multiplikationsfaktor
+
+    Aus der Veränderung der Neutronendichte lässt sich mithilfe des initialen Werts der Multiplikationsfaktor zu jeder Position der unteren Kernhälfte bestimmen. \\
+    Aus den Messwerten lässt sich wie in Tabellen 2 \& 3 gezeigt der Multiplikationsfaktor berechnen:
+    \begin{align*}
+        k_0 &= 0.945 \\
+        k_i &= 1 + \frac{N_{i-1}}{N_i} \cdot \left(k_{i-1} - 1\right)
+    \end{align*}
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{multiplikationsfaktor.png}
+        \caption{Multiplikationsfaktor}
+        \label{fig:multFaktor}
+    \end{figure}
+    Wie in Abbildung \ref{fig:multFaktor} zu sehen ist, wächst der Multiplikationsfaktor stetig an, wobei er jedoch 1 nicht erreicht, da der Reaktor keinen kritischen Zustand erlangt.
+    \\ \\
     % Unterkritische Verstärkung
+    Aus dem Multiplikationsfaktor lässt sich ebenfalls berechnen, wie stark die unterkritische Verstärkung $M_i$ ist, die der Reaktor aufweist, wenn die Anfahrneutronenquelle eingefahren ist. \\
+    Dabei bezeichnet die unterkritische Verstärkung den Parameter, der bestimmt wie groß die asymptotische Neutronendichte nach unendlich langer Zeit ist, sofern die Quellstärke der Neutronenquelle und die Neutronengenerationszeit konstant ist.
+    \begin{align*}
+        M_i = \frac{1}{1 - k_i}
+    \end{align*}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{unterkritischeVerstaerkung.png}
+        \caption{unterkritische Verstärkung}
+        \label{fig:unterkritVerst}
+    \end{figure}
+    Wie in Abbildung \ref{fig:unterkritVerst} zu sehen ist, wächst die unterkritische Verstärkung ins unendliche, wenn $k_i$ gegen 1 geht.
+    \newpage
     % Reaktivität
+    Weiterhin lässt sich aus dem Multiplikationsfaktor die Reaktivität berechnen:
+    \begin{align*}
+        \rho_i = \frac{k_i - 1}{k_i}
+    \end{align*}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{reaktivitaet.png}
+        \caption{Reaktivität}
+        \label{fig:reaktivitaet}
+    \end{figure}
+    Wie in Abbildung \ref{fig:reaktivitaet} zu sehen ist nähert sich die Reaktivität an 0 an, was einem kritischen Zustand entspricht.
 
     \section{Fehlerbetrachtung}
 
     % Poisson-Verteilung Fehlergedöns
+    \subsection{Statistischer Fehler}
+    Die Neutronendetektoren unterliegen einem statistischen Fehler, da die Impulsrate der Neutronen ein statistischer Wert ist.
+    Dabei berechnet sich der Fehler aus der Wurzel des Messwerts. \\
+    Zu Beginn des Experiments liegen die Zählraten im Bereich von 8 - 12 Impulsen pro Sekunde. Damit liegt der Fehler bei $\pm\, 35\, \%$ bzw. $\pm\, 29\, \%$, was auch die Überkreuzung der Graphen in Abbildung \ref{fig:relativeCount} erklärt, welche in der Theorie nicht vorkommen sollte. \\
+    Da die Zählraten am Ende des Experiments im Bereich von 95 Impulsen pro Sekunde liegen, womit der Fehler auf $\pm\, 10\, \%$ zurückgeht, hat sich Sicherheit der Extrapolation entsprechend erhöht. \\
+    Aus diesem Grund wird das Experiment in der Regel fortgeführt, bis die extrapolierten kritischen Parameterwerte mit Sicherheit die Ungleichung erfüllen.
+    
     % Neutronendichte asymptotisch etc
+    \subsection{Erreichen der asymptotischen Neutronendichte}
+    Die Zeitabhängigkeit zur erreichen der asymptotischen Neutronendichte n lautet
+    \begin{align*}
+        n(t) = \frac{S \cdot l}{1 - k} \cdot \left(1 - \exp \left[- \frac{1 - k}{l} \cdot t\right] \right)
+    \end{align*}
+    Aus der Gleichung ist ersichtlich, dass die Erreichung des asymptotischen Zustandes länger dauert, je näher sich der Reaktor an den kritischen Zustand annähert, der Multiplikationsfaktor also gegen 1 geht. \\
+    Da bei Ausführen des Experiments jedoch nur begrenzt lange gewartet werden kann, wird die asymptotische Neutronendichte nie ganz erreicht, was zu einem weiteren Fehler führt.
+
+    \newpage
+    \section{Anhang}
 \end{document}
