@@ -138,7 +138,7 @@
     Im Verlauf des Experiments ergibt sich folgender Verlauf der Messpunkte:
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.7\textwidth]{relativeCount.png}
+        \includegraphics[width=0.7\textwidth]{relativeCount.eps}
         \caption{Verlauf von $N_0 / N_i$}
         \label{fig:relativeCount}
     \end{figure}
@@ -158,7 +158,7 @@
     
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.7\textwidth]{multiplikationsfaktor.png}
+        \includegraphics[width=0.7\textwidth]{multiplikationsfaktor.eps}
         \caption{Multiplikationsfaktor}
         \label{fig:multFaktor}
     \end{figure}
@@ -173,7 +173,7 @@
 
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.7\textwidth]{unterkritischeVerstaerkung.png}
+        \includegraphics[width=0.7\textwidth]{unterkritischeVerstaerkung.eps}
         \caption{unterkritische Verstärkung}
         \label{fig:unterkritVerst}
     \end{figure}
@@ -187,7 +187,7 @@
 
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.7\textwidth]{reaktivitaet.png}
+        \includegraphics[width=0.7\textwidth]{reaktivitaet.eps}
         \caption{Reaktivität}
         \label{fig:reaktivitaet}
     \end{figure}
@@ -197,8 +197,8 @@
 
     % Poisson-Verteilung Fehlergedöns
     \subsection{Statistischer Fehler}
-    Die Neutronendetektoren unterliegen einem statistischen Fehler, da die Impulsrate der Neutronen ein statistischer Wert ist.
-    Dabei berechnet sich der Fehler aus der Wurzel des Messwerts. \\
+    Die Neutronendetektoren unterliegen einem statistischen Fehler, da die Zählrate Z der Neutronen ein statistischer Wert ist.
+    Aufgrund der POISSON-Verteilung lässt sich der Fehler durch $\Delta Z = \pm\sqrt{Z}$ berechnen. \\
     Zu Beginn des Experiments liegen die Zählraten im Bereich von 8 - 12 Impulsen pro Sekunde. Damit liegt der Fehler bei $\pm\, 35\, \%$ bzw. $\pm\, 29\, \%$, was auch die Überkreuzung der Graphen in Abbildung \ref{fig:relativeCount} erklärt, welche in der Theorie nicht vorkommen sollte. \\
     Da die Zählraten am Ende des Experiments im Bereich von 95 Impulsen pro Sekunde liegen, womit der Fehler auf $\pm\, 10\, \%$ zurückgeht, hat sich die Sicherheit der Extrapolation entsprechend erhöht. \\
     Aus diesem Grund wird das Experiment in der Regel fortgeführt, bis die extrapolierten kritischen Parameterwerte mit Sicherheit die Ungleichung erfüllen.

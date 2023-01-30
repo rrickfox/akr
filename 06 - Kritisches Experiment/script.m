@@ -1,6 +1,6 @@
 clear all;
-set(groot,'defaultLineLineWidth',2.0)
-set(groot,'defaultAxesFontSize',18)
+set(groot,'defaultLineLineWidth',1.8)
+set(groot,'defaultAxesFontSize',14)
 
 c1 = "#0072BD";
 c2 = "#EDB120";
@@ -146,11 +146,12 @@ plot(xAus,kAusWB2,'color',c2);
 legend({'WB1 eingefahren' 'WB1 ausgefahren' 'WB2 eingefahren' 'WB2 ausgefahren'},Location='northwest');
 ylabel('Multiplikationsfaktor k');
 xlabel('Hubhöhe [digits]');
-axis padded;
+ylim([0.945 1])
+xlim([0 550])
 grid on;
 
 f2 = gcf;
-exportgraphics(f2,'multiplikationsfaktor.eps','Resolution',500)
+exportgraphics(f2,'multiplikationsfaktor.eps','Resolution',300)
 
 
 %% calculate & plot unterkritische Verstärkung M(x)
@@ -181,7 +182,7 @@ xlim([0 520]);
 grid on;
 
 f3 = gcf;
-exportgraphics(f3,'unterkritischeVerstaerkung.eps','Resolution',500)
+exportgraphics(f3,'unterkritischeVerstaerkung.eps','Resolution',300)
 
 
 %% calculate & plot Reaktivität p(x)
@@ -212,4 +213,4 @@ xlim([0 520]);
 grid on;
 
 f4 = gcf;
-exportgraphics(f4,'reaktivitaet.eps','Resolution',500)
+exportgraphics(f4,'reaktivitaet.eps','Resolution',300)
